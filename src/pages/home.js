@@ -5,18 +5,27 @@ import { http } from '../services/http'
 
 export default class Home extends React.Component {
 
-  handleSubmit(fileInput) {
-    const file = fileInput.files[0]
+  handleChange(file) {
+    this.setState({ file })
+  }
+
+  handleSubmit(e) {
+    e.preventDefault()
+    const { file } = this.state
+
     if (!file) return
+
     const config = {
       headers: {
         'Content-Type': 'application/octet-stream'
       }
     }
+
     http.post('/api/analyze', file, config)
   }
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <h1>
@@ -24,9 +33,9 @@ export default class Home extends React.Component {
         </h1>
 
         <div className="input-file-wrapper">
-          <form>
-
-            <InputFile handleSubmit={ files => this.handleSubmit(files) } />
+          <form onSubmit={ e => this.handleSubmit(e) }>
+            <InputFile handleChange={ files => this.handleChange(files) } />
+            <input type="submit" value="UPLOAD" />
           </form>
         </div>
 
