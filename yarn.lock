@@ -4954,7 +4954,7 @@ promise-inflight@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/promise-inflight/-/promise-inflight-1.0.1.tgz#98472870bf228132fcbdd868129bad12c3c029e3"
 
-prop-types@^15.6.2:
+prop-types@^15.6.1, prop-types@^15.6.2:
   version "15.6.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.6.2.tgz#05d5ca77b4453e985d60fc7ff8c859094a497102"
   dependencies:
@@ -5096,6 +5096,12 @@ react-dom@^16.2.0:
     object-assign "^4.1.1"
     prop-types "^15.6.2"
     schedule "^0.5.0"
+
+react-file-drop@^0.2.7:
+  version "0.2.7"
+  resolved "https://registry.yarnpkg.com/react-file-drop/-/react-file-drop-0.2.7.tgz#9bdfab8aa1bf75990655d953d93c22b5e48a32dd"
+  dependencies:
+    prop-types "^15.6.1"
 
 react-is@^16.5.2:
   version "16.5.2"
