@@ -4,17 +4,15 @@ import FileDrop from 'react-file-drop'
 import '../styles.css'
 
 export default class InputFile extends React.Component {
-  handleDrop = (files, event) => {
-    console.log(files, event)
-  }
 
   render() {
     return (
 
       <div className="input-file">
-        <FileDrop onDrop={ this.handleDrop }>
+        <input type="file" onChange={ e => this.props.handleSubmit(e.target) } />
+        {/* <FileDrop onDrop={ files => this.props.handleSubmit(files) }>
           Drop some files here!
-        </FileDrop>
+        </FileDrop> */}
       </div>
     )
   }
