@@ -5,6 +5,10 @@ import { http } from '../services/http'
 
 export default class Home extends React.Component {
 
+  state = {
+    result: null
+  }
+
   handleChange(file) {
     this.setState({ file })
   }
@@ -21,10 +25,14 @@ export default class Home extends React.Component {
       }
     }
 
-    http.post('/api/analyze', file, config)
+    http.post('/api/analyze', file, config).then(res => {
+      const { result } = res.data
+      this.setState({ result })
+    })
   }
 
   render() {
+    const { result } = this.state
     console.log(this.state)
     return (
       <div>
@@ -37,6 +45,8 @@ export default class Home extends React.Component {
             <InputFile handleChange={ files => this.handleChange(files) } />
             <input type="submit" value="UPLOAD" />
           </form>
+          { result == false && <h3>Sem risco de diabetes</h3> }
+          { result && <h3>Há risco de diabetes</h3> }
         </div>
 
       </div>
