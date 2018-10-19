@@ -17,8 +17,8 @@ export default class ResultInfo extends React.Component {
     return (
       <div className="form">
         <div className="display-flex">
-          <InputFile label="Olho Esquerdo" handleChange={ files => this.handleChange('left', files) } />
           <InputFile label="Olho Direito" handleChange={ files => this.handleChange('right', files) } />
+          <InputFile label="Olho Esquerdo" handleChange={ files => this.handleChange('left', files) } />
         </div>
 
         <div className="display-flex">

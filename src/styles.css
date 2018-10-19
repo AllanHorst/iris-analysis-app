@@ -16,7 +16,6 @@ h1 {
 .form {
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
   padding: 9px 3%;
   background: #f3f3f3;
   box-shadow: 1px 1px 10px #00000029;
@@ -78,4 +77,38 @@ h1 {
 .button:hover {
   cursor: pointer;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.result-wrapper {
+  display: flex;
+  padding: 3% 5%;
+}
+
+.result-info {
+  flex-basis: 50%;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+}
+
+.images {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.result-item {
+  display: flex;
+  flex-basis: 47%;
+  margin: 1%;
+}
+
+.result-item span {
+  color: #505050;
+  font-size: 14px;
+}
+
+.image {
+  width: 50%;
+  margin-right: 3px;
 }

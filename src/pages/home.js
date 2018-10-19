@@ -3,6 +3,7 @@ import '../styles.css'
 
 import { http } from '../services/http'
 import Form from '../components/form'
+import ResultInfo from '../components/result-info'
 export default class Home extends React.Component {
 
   state = {
@@ -39,6 +40,12 @@ export default class Home extends React.Component {
           IRIS ANALYSIS
         </h1>
         <Form handleSubmit={ data => this.handleSubmit(data)} />
+
+        <div className="result-wrapper">
+          { right && <ResultInfo data={ right } /> }
+          { left && <ResultInfo data={ left } /> }
+        </div>
+
       </div>
     )
   }
