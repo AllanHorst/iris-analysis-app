@@ -16,6 +16,7 @@ h1 {
 .form {
   display: flex;
   align-items: flex-end;
+  justify-content: space-between;
   padding: 9px 3%;
   background: #f3f3f3;
   box-shadow: 1px 1px 10px #00000029;
@@ -26,12 +27,16 @@ h1 {
   flex-direction: column;
 }
 
+.display-flex {
+  display: flex;
+}
+
 .input-file-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
   width: 182px;
-  background: #18dcb6;
+  background: #505050;
   margin-right: 10px;
   border-radius: 5px;
   box-shadow: 1px 1px 10px #00000033;
@@ -45,21 +50,32 @@ h1 {
 .input-file {
   width: 225px;
   opacity: 0;
-  padding: 14px 0;
+  padding: 2px 0;
   cursor: pointer;
 }
 
 .file-name {
+  color: white;
   font-size: 12px;
   position: absolute;
 }
 
 .button {
-  height: 50px;
+  height: 35px;
   border: none;
   width: 160px;
   border-radius: 8px;
   margin-right: 10px;
   background: transparent;
-  box-shadow: 1px 1px 10px #00000033;
+  transition: all .5s ease;
+}
+
+.primary {
+  color: white;
+  background: #e7b729;
+}
+
+.button:hover {
+  cursor: pointer;
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
 }

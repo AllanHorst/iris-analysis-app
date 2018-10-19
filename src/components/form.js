@@ -16,10 +16,16 @@ export default class ResultInfo extends React.Component {
   render() {
     return (
       <div className="form">
-        <InputFile label="Olho Esquerdo" handleChange={ files => this.handleChange('left', files) } />
-        <InputFile label="Olho Direito" handleChange={ files => this.handleChange('right', files) } />
-        <button className="button" onClick={ () => this.setState({ left: null, right: null }) }>Limpar</button>
-        <button className="button" onClick={ () => this.props.handleSubmit(this.state) }>Enviar</button>
+        <div className="display-flex">
+          <InputFile label="Olho Esquerdo" handleChange={ files => this.handleChange('left', files) } />
+          <InputFile label="Olho Direito" handleChange={ files => this.handleChange('right', files) } />
+        </div>
+
+        <div className="display-flex">
+          <button className="button" onClick={ () => this.setState({ left: null, right: null }) }>Limpar</button>
+          <button className="button primary" onClick={ () => this.props.handleSubmit(this.state) }>Enviar</button>
+        </div>
+
       </div>
     )
   }
