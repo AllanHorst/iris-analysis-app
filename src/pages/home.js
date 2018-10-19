@@ -1,22 +1,21 @@
 import React from 'react'
-import InputFile from 'input-file'
 import '../styles.css'
-import { http } from '../services/http'
 
+import { http } from '../services/http'
+import Form from '../components/form'
 export default class Home extends React.Component {
 
   state = {
     result: null
   }
 
-  handleChange(file) {
-    this.setState({ file })
+  handleSubmit(data) {
+    const { right, left } = data
+    this.sendImage(right, 'right')
+    this.sendImage(left, 'left')
   }
 
-  handleSubmit(e) {
-    e.preventDefault()
-    const { file } = this.state
-
+  sendImage(file, name) {
     if (!file) return
 
     const config = {
@@ -24,31 +23,22 @@ export default class Home extends React.Component {
         'Content-Type': 'application/octet-stream'
       }
     }
+    console.log(file)
 
     http.post('/api/analyze', file, config).then(res => {
-      const { result } = res.data
-      this.setState({ result })
+      const result = res.data
+      this.setState({ [name]: result })
     })
   }
 
   render() {
-    const { result } = this.state
-    console.log(this.state)
+    const { right, left } = this.state
     return (
       <div>
         <h1>
           IRIS ANALYSIS
         </h1>
-
-        <div className="input-file-wrapper">
-          <form onSubmit={ e => this.handleSubmit(e) }>
-            <InputFile handleChange={ files => this.handleChange(files) } />
-            <input type="submit" value="UPLOAD" />
-          </form>
-          { result == false && <h3>Sem risco de diabetes</h3> }
-          { result && <h3>Há risco de diabetes</h3> }
-        </div>
-
+        <Form handleSubmit={ data => this.handleSubmit(data)} />
       </div>
     )
   }

@@ -2,7 +2,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
+  color: #505050;
 }
 
 h1 {
@@ -12,12 +13,53 @@ h1 {
   font-size: 3em;
 }
 
+.form {
+  display: flex;
+  align-items: flex-end;
+  padding: 9px 3%;
+  background: #f3f3f3;
+  box-shadow: 1px 1px 10px #00000029;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-file-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 182px;
+  background: #18dcb6;
+  margin-right: 10px;
+  border-radius: 5px;
+  box-shadow: 1px 1px 10px #00000033;
+}
+
+.label-input-file {
+  font-size: 12px;
+  margin-bottom: 3px;
+}
+
 .input-file {
-  border: 5px dashed #9e9999;
-  width: 600px;
-  color: #505050;
-  padding: 10px;
-  height: 200px;
-  font-size: 18px;
-  font-weight: bold;
+  width: 225px;
+  opacity: 0;
+  padding: 14px 0;
+  cursor: pointer;
+}
+
+.file-name {
+  font-size: 12px;
+  position: absolute;
+}
+
+.button {
+  height: 50px;
+  border: none;
+  width: 160px;
+  border-radius: 8px;
+  margin-right: 10px;
+  background: transparent;
+  box-shadow: 1px 1px 10px #00000033;
 }
