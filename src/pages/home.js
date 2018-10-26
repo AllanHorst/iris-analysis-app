@@ -7,7 +7,7 @@ import ResultInfo from '../components/result-info'
 export default class Home extends React.Component {
 
   state = {
-    result: null
+    result: null,
   }
 
   handleSubmit(data) {
@@ -24,16 +24,33 @@ export default class Home extends React.Component {
         'Content-Type': 'application/octet-stream'
       }
     }
-    console.log(file)
+    this.setState({
+      [`${name}Error`]: null,
+      [name]: null
+    })
 
     http.post('/api/analyze', file, config).then(res => {
       const result = res.data
+
+      if (result.error || result.images.length !== 4) {
+        this.storeMessageError(name, result.error)
+        return
+      }
+
       this.setState({ [name]: result })
+    }).catch(() => {
+      this.storeMessageError(name)
+    })
+  }
+
+  storeMessageError(name, message=null) {
+    this.setState({
+      [`${name}Error`]: message ? message : 'Erro ao processar imagem, tamanho recomendado(300x300)'
     })
   }
 
   render() {
-    const { right, left } = this.state
+    const { right, left,rightError, leftError } = this.state
     return (
       <div>
         <h1>
@@ -42,8 +59,8 @@ export default class Home extends React.Component {
         <Form handleSubmit={ data => this.handleSubmit(data)} />
 
         <div className="result-wrapper">
-          { right && <ResultInfo data={ right } /> }
-          { left && <ResultInfo data={ left } /> }
+          <ResultInfo messageError={ rightError } data={ right } />
+          <ResultInfo  messageError={ leftError} data={ left } />
         </div>
 
       </div>

@@ -85,10 +85,15 @@ h1 {
 }
 
 .result-info {
-  flex-basis: 50%;
+  flex-basis: 48%;
   border-radius: 5px;
   padding: 20px;
-  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.05);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.14);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .images {
@@ -102,6 +107,7 @@ h1 {
 .result-item {
   display: flex;
   flex-basis: 47%;
+  justify-content: center;
   margin: 1%;
 }
 
@@ -141,6 +147,10 @@ h1 {
   color: #FAA27F;
 }
 .very-high {
+  font-weight: bold;
+  color: #BF4545;
+}
+.error {
   font-weight: bold;
   color: #BF4545;
 }

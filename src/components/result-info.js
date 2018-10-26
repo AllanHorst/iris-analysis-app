@@ -27,7 +27,20 @@ export default class ResultInfo extends React.Component {
     return <span className="very-high"> muito alta: { avarage }% </span>
   }
 
+  renderError() {
+    return(
+      <div className="result-info">
+        <span className="error"> { this.props.messageError } </span>
+      </div>
+    )
+  }
+
   render() {
+    console.log(this.props)
+    if (!this.props.messageError && !this.props.data) return null
+    console.log(this.props.messageError)
+    if (this.props.messageError) return this.renderError()
+
     const { images } = this.props.data
     return (
       <div className="result-info">
