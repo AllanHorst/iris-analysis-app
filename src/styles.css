@@ -19,6 +19,7 @@ h1 {
   padding: 9px 3%;
   background: #f3f3f3;
   box-shadow: 1px 1px 10px #00000029;
+  justify-content: center;
 }
 
 .flex-column {
@@ -140,7 +141,7 @@ h1 {
 }
 .medium {
   font-weight: bold;
-  color: #FFF799;
+  color: #f5e95c;
 }
 .high {
   font-weight: bold;
