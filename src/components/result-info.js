@@ -7,7 +7,7 @@ export default class ResultInfo extends React.Component {
 
   getResult() {
     const { avarage } = this.props.data
-
+    console.log(avarage)
     if (avarage <= 20) {
       return <span className="very-low"> muito baixa: { avarage }% </span>
     }

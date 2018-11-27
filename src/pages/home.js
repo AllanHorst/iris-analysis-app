@@ -36,7 +36,6 @@ export default class Home extends React.Component {
         this.storeMessageError(name, result.error)
         return
       }
-
       this.setState({ [name]: result })
     }).catch(() => {
       this.storeMessageError(name)
@@ -49,6 +48,16 @@ export default class Home extends React.Component {
     })
   }
 
+  clear() {
+    this.setState({
+      rightError: null,
+      leftError: null,
+      left: null,
+      right: null,
+      result: null
+    })
+  }
+
   render() {
     const { right, left,rightError, leftError } = this.state
     return (
@@ -56,7 +65,9 @@ export default class Home extends React.Component {
         <h1>
           IRIS ANALYSIS
         </h1>
-        <Form handleSubmit={ data => this.handleSubmit(data)} />
+        <Form
+          handleSubmit={ data => this.handleSubmit(data)}
+          clear={ () => this.clear() } />
 
         <div className="result-wrapper">
           <ResultInfo messageError={ rightError } data={ right } />
